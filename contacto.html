@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Página Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="bienvenido.html">Inicio</a></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="contacto.html">Soporte Técnico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <section>
+            <h2>Enviar un Mensaje por Correo Electrónico</h2>
+            <form id="emailForm">
+                <label for="emailMessage">Mensaje:</label>
+                <textarea id="emailMessage" name="emailMessage" rows="4" required></textarea>
+                <button type="submit">Enviar por Correo</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('emailForm');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const message = document.getElementById('emailMessage').value;
+                const email = 'danielpertuz0909@gmail.com'; // Reemplaza con la dirección de correo de destino
+                const subject = 'Mensaje desde la página de contacto';
+                const emailUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+                window.location.href = emailUrl; // Abre el cliente de correo
+            });
+        });
+    </script>
+</body>
+</html>
